@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import CustomUser as CustomUserModel
+from .models import CustomUser as CustomUserModel, UserTypes as UserTypesModel
 from .serializers import (
     CustomUserSerializers,
     RegisterNewUserSerializer,
@@ -47,3 +47,10 @@ class UserAdminApi(APIView):
             if serializer.errors.get("username"):
                 return Response(serializer.errors, status=status.HTTP_409_CONFLICT)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserTypeList(APIView):
+    # user type list
+    def get(self, request):
+        response = [i[0] for i in UserTypesModel.choices]
+        return Response(response, status=status.HTTP_200_OK)
