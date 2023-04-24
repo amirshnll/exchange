@@ -49,7 +49,7 @@ class BalanceApi(APIView):
     # delete balance by balance_id
     def delete(self, request, balance_id):
         try:
-            balance_obj = BalanceModel.objects.get(pk=int(balance_id))
+            balance_obj = BalanceModel.objects.get(pk=balance_id)
         except BalanceModel.DoesNotExist:
             return Response(
                 {"status": "error", "message": "DoesNotExist"},

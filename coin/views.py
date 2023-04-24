@@ -52,7 +52,7 @@ class CoinApi(APIView):
     # delete coin by coin_id
     def delete(self, request, coin_id):
         try:
-            coin_obj = CoinTypesModel.objects.get(pk=int(coin_id))
+            coin_obj = CoinTypesModel.objects.get(pk=coin_id)
         except CoinTypesModel.DoesNotExist:
             return Response(
                 {"status": "error", "message": "DoesNotExist"},
