@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 from django.dispatch import receiver
 from django.db.models.signals import post_save
-from .defs import delete_user
 
 
 class CustomUser(AbstractUser):
@@ -17,6 +16,9 @@ class CustomUser(AbstractUser):
             from balance.defs import create_new_user_balance  # circular import
 
             user_balance_status = create_new_user_balance(user=instance)
+
             if user_balance_status == False:
                 # roll back user registered
+                from .defs import delete_user  # circular import
+
                 delete_user(user=instance)

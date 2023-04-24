@@ -57,3 +57,34 @@ class BalanceApi(APIView):
             )
         balance_obj.delete()
         return Response({"status": "success"}, status=status.HTTP_200_OK)
+
+
+class UserBalanceApi(APIView):
+    # get user balance by user
+    def get(self, request):
+        try:
+            balance_obj = BalanceModel.objects.get(user=request.user.id)
+        except BalanceModel.DoesNotExist:
+            return Response(
+                {"status": "error", "message": "DoesNotExist"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        balance_serializer = BalanceSerializers(instance=balance_obj, many=False)
+        return Response(balance_serializer.data, status=status.HTTP_200_OK)
+
+    # update balance by user
+    def put(self, request):
+        try:
+            balance_obj = BalanceModel.objects.get(user=request.user.id)
+        except BalanceModel.DoesNotExist:
+            return Response(
+                {"status": "error", "message": "DoesNotExist"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        balance_obj.balance = (
+            request.data["balance"] if "balance" in request.data else 0
+        )
+        balance_obj.save()
+        serializer = BalanceSerializers(instance=balance_obj, many=False)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
