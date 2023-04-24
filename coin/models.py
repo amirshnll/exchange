@@ -7,4 +7,3 @@ class CoinTypes(models.Model):
     price = models.FloatField(
         default=0,
     )
-    minimum_purchase = models.IntegerField(default=0, null=True, blank=True)
