@@ -14,8 +14,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ADMIN_ENABLED = True
+DEBUG = True if env("DEBUG") == "true" else False
+ADMIN_ENABLED = True if env("ADMIN_ENABLED") == "true" else False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -119,3 +119,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# minimum coin per purchase
+MINIMUM_PER_PURCHASE = int(env("MINIMUM_PER_PURCHASE"))
