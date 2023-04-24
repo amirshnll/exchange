@@ -11,6 +11,6 @@ class OrderStatus(models.TextChoices):
 class Order(models.Model):
     user = models.ForeignKey(CustomUserModel, on_delete=models.CASCADE)
     coin = models.ForeignKey(CoinTypesModel, on_delete=models.CASCADE)
-    coin_amount = models.IntegerField()
+    coin_count = models.IntegerField()
     order_price = models.IntegerField()
     status = models.CharField(choices=OrderStatus.choices, max_length=10)
