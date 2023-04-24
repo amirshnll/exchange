@@ -8,6 +8,7 @@ from .serializers import (
     RegisterNewUserAdminSerializer,
 )
 from .permissions import method_permission_classes, IsLogginedUser
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class UserApi(APIView):
@@ -54,3 +55,52 @@ class UserTypeList(APIView):
     def get(self, request):
         response = [i[0] for i in UserTypesModel.choices]
         return Response(response, status=status.HTTP_200_OK)
+
+
+class UserAuthApi(APIView):
+    # auth user
+    def post(self, request):
+        if "username" in request.data:
+            username = request.data["username"]
+        else:
+            return Response(
+                {"status": "username not received"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if "password" in request.data:
+            password = request.data["password"]
+        else:
+            return Response(
+                {"status": "password not received"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        try:
+            user_obj = CustomUserModel.objects.get(username=username, is_deactive=False)
+        except CustomUserModel.DoesNotExist:
+            return Response(
+                {
+                    "detail": "error",
+                    "message": "invalid username or password",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if user_obj.check_password(password):
+            user_token = RefreshToken.for_user(user_obj)
+            response = {
+                "token": str(user_token.access_token),
+                "refresh": str(user_token),
+                "user_id": user_obj.id,
+                "username": user_obj.username,
+            }
+            return Response(response, status=status.HTTP_200_OK)
+        else:
+            return Response(
+                {
+                    "detail": "error",
+                    "message": "invalid username/email or password",
+                },
+                status=status.HTTP_400_BAD_REQUEST,
+            )

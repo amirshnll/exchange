@@ -84,3 +84,5 @@ fixtures/data.json
 .vscode/settings.json
 static/
 static/*
+pyvenv.cfg
+bin/
