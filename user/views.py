@@ -6,6 +6,18 @@ from .serializers import CustomUserSerializers, RegisterNewUserSerializer
 
 
 class UserApi(APIView):
+    # get user
+    def get(self, request):
+        try:
+            user_obj = CustomUserModel.objects.get(pk=request.user.id)
+        except CustomUserModel.DoesNotExist:
+            return Response(
+                {"status": "error", "message": "DoesNotExist"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        balance_serializer = CustomUserSerializers(instance=user_obj, many=False)
+        return Response(balance_serializer.data, status=status.HTTP_200_OK)
+
     # create new user
     def post(self, request):
         serializer = RegisterNewUserSerializer(data=request.data)
