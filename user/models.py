@@ -13,7 +13,7 @@ class UserTypes(models.TextChoices):
 
 class CustomUser(AbstractUser):
     type = models.CharField(
-        choices=UserTypes,
+        choices=UserTypes.choices,
         default=UserTypes.CUSTOMER,
         max_length=10,
     )
