@@ -22,7 +22,7 @@ class CoinApi(APIView):
             coin_obj = CoinTypesModel.objects.get(pk=coin_id)
         except CoinTypesModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "coin does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         coin_serializer = CoinTypesSerializers(instance=coin_obj, many=False)
@@ -34,7 +34,7 @@ class CoinApi(APIView):
             coin_obj = CoinTypesModel.objects.get(pk=coin_id)
         except CoinTypesModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "coin does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         if "name" in request.data:
@@ -55,7 +55,7 @@ class CoinApi(APIView):
             coin_obj = CoinTypesModel.objects.get(pk=coin_id)
         except CoinTypesModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "coin does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         coin_obj.delete()

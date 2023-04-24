@@ -23,7 +23,7 @@ class BalanceApi(APIView):
             balance_obj = BalanceModel.objects.get(pk=balance_id)
         except BalanceModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "balance does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         balance_serializer = BalanceSerializers(instance=balance_obj, many=False)
@@ -35,7 +35,7 @@ class BalanceApi(APIView):
             balance_obj = BalanceModel.objects.get(pk=balance_id)
         except BalanceModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "balance does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         balance_obj.balance = (
@@ -52,7 +52,7 @@ class BalanceApi(APIView):
             balance_obj = BalanceModel.objects.get(pk=balance_id)
         except BalanceModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "balance does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         balance_obj.delete()
@@ -66,7 +66,7 @@ class UserBalanceApi(APIView):
             balance_obj = BalanceModel.objects.get(user=request.user.id)
         except BalanceModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "balance does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         balance_serializer = BalanceSerializers(instance=balance_obj, many=False)
@@ -78,7 +78,7 @@ class UserBalanceApi(APIView):
             balance_obj = BalanceModel.objects.get(user=request.user.id)
         except BalanceModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "balance does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         balance_obj.balance = (

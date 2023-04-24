@@ -12,7 +12,7 @@ class UserApi(APIView):
             user_obj = CustomUserModel.objects.get(pk=request.user.id)
         except CustomUserModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "user does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         balance_serializer = CustomUserSerializers(instance=user_obj, many=False)

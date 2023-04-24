@@ -21,7 +21,7 @@ class OrderApi(APIView):
             order_obj = OrderModel.objects.get(pk=order_id)
         except OrderModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "order does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         order_serializer = OrderSerializers(instance=order_obj, many=False)
@@ -33,7 +33,7 @@ class OrderApi(APIView):
             order_obj = OrderModel.objects.get(pk=order_id)
         except OrderModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "order does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         order_obj.coin = request.data["coin"] if "coin" in request.data else 0
@@ -59,7 +59,7 @@ class OrderApi(APIView):
             order_obj = OrderModel.objects.get(pk=order_id)
         except OrderModel.DoesNotExist:
             return Response(
-                {"status": "error", "message": "DoesNotExist"},
+                {"status": "error", "message": "order does not exist"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
         order_obj.delete()
