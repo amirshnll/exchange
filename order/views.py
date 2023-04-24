@@ -5,7 +5,7 @@ from .models import Order as OrderModel, OrderStatus as OrderStatusModel
 from .serializers import OrderSerializers
 
 
-class orderApi(APIView):
+class OrderApi(APIView):
     # create order
     def post(self, request):
         order_serializer = OrderSerializers(data=request.data)
