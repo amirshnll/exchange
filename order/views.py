@@ -69,3 +69,10 @@ class OrderApi(APIView):
             )
         order_obj.delete()
         return Response({"status": "success"}, status=status.HTTP_200_OK)
+
+
+class OrderStatusList(APIView):
+    # order status list
+    def get(self, request):
+        response = [i[0] for i in OrderStatusModel.choices]
+        return Response(response, status=status.HTTP_200_OK)
