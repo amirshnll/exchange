@@ -2,9 +2,8 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Order as OrderModel, OrderStatus as OrderStatusModel
-from .serializers import OrderSerializers
+from .serializers import OrderSerializers, OrderValidationSerializer
 from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
-from coin.defs import coin_is_exists
 
 
 class OrderApi(APIView):
@@ -83,33 +82,11 @@ class NewOrderApi(APIView):
     # new order
     @method_permission_classes([IsLogginedUser])
     def post(self, request):
-        if "name" in request.data:
-            name = request.data["name"]
+        order_serializer = OrderValidationSerializer(data=request.data)
+
+        if order_serializer.is_valid():
+            name = order_serializer.validated_data["name"]
+            count = order_serializer.validated_data["count"]
+
         else:
-            return Response(
-                {"status": "coin name not received"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-
-        if "count" in request.data:
-            count = int(request.data["count"])
-            if count <= 0:
-                return Response(
-                    {"status": "count must greater than zero"},
-                    status=status.HTTP_400_BAD_REQUEST,
-                )
-        else:
-            return Response(
-                {"status": "count not received"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-
-        if coin_is_exists(name) is False:
-            return Response(
-                {"status": "this coin not exists"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
-        
-
-
-        return Response({"message": "ok"}, status=status.HTTP_200_OK)
+            return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
