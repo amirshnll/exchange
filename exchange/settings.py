@@ -150,3 +150,8 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_LIFETIME": timedelta(minutes=5),
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
+
+# redis configuration
+REDIS_HOST = env("REDIS_HOST")
+REDIS_DB = int(env("REDIS_DB"))
+REDIS_PORT = int(env("REDIS_PORT"))
