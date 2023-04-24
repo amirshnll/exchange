@@ -1,0 +1,2377 @@
+[
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "WETH",
+      "symbol": "WETH"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "TrueUSD",
+      "symbol": "TUSD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Tokenlon",
+      "symbol": "LON"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SKALE Network",
+      "symbol": "SKL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UniLend",
+      "symbol": "UFT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Orion Protocol",
+      "symbol": "ORN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Rai Reflex Index",
+      "symbol": "RAI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SparkPoint",
+      "symbol": "SRK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UMA",
+      "symbol": "UMA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SmartKey",
+      "symbol": "Skey"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Base Protocol",
+      "symbol": "BASE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Mirror Protocol",
+      "symbol": "MIR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Growth DeFi",
+      "symbol": "GRO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "LGO Token",
+      "symbol": "LGO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "xDai",
+      "symbol": "STAKE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "yearn.finance",
+      "symbol": "YFI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Bifrost",
+      "symbol": "BFC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Public Mint",
+      "symbol": "MINT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PoolTogether",
+      "symbol": "POOL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Basic Attention Token",
+      "symbol": "BAT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DAO Maker",
+      "symbol": "DAO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Decentraland",
+      "symbol": "MANA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Blockzero Labs",
+      "symbol": "XIO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Pundi X",
+      "symbol": "PUNDIX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Unilayer",
+      "symbol": "LAYER"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UniMex Network",
+      "symbol": "UMX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "1INCH Token",
+      "symbol": "1INCH"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ARMOR",
+      "symbol": "ARMOR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Armor NXM",
+      "symbol": "arNXM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DeFi Pulse Index",
+      "symbol": "DPI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DeltaHub Community",
+      "symbol": "DHC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "EthereumMax",
+      "symbol": "eMax"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PAID Network",
+      "symbol": "PAID"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "KIRA Network",
+      "symbol": "KEX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Polychain Monsters",
+      "symbol": "PMON"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Cryptocurrency Top 10 Tokens Index",
+      "symbol": "CC10"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Audius",
+      "symbol": "AUDIO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Augur",
+      "symbol": "REP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Vesper",
+      "symbol": "VSP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Antimatter.Finance Governance Token",
+      "symbol": "MATTER"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "TOWER",
+      "symbol": "TOWER"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Non-Fungible Yearn",
+      "symbol": "NFY"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Keep3rV1",
+      "symbol": "KP3R"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Lead Wallet",
+      "symbol": "LEAD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Uniswap",
+      "symbol": "UNI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ChainGuardians Governance Token",
+      "symbol": "CGG"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "OVR",
+      "symbol": "OVR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Reputation",
+      "symbol": "REPv2"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Wrapped Bitcoin",
+      "symbol": "WBTC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UNION Protocol Governance Token",
+      "symbol": "UNN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Unisocks Edition 0",
+      "symbol": "SOCKS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Bidao",
+      "symbol": "BID"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Cellframe",
+      "symbol": "CELL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DegenVC",
+      "symbol": "DGVC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DOGE KILLER",
+      "symbol": "LEASH"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Froge Finance",
+      "symbol": "FROGE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "HEX",
+      "symbol": "HEX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Cream Finance",
+      "symbol": "CREAM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Mettalex",
+      "symbol": "MTLX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Yfi.mobi",
+      "symbol": "YFIM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ZeroSwap",
+      "symbol": "ZEE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Decentr",
+      "symbol": "DEC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "THORChain ETH.RUNE",
+      "symbol": "RUNE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Akita Inu",
+      "symbol": "AKITA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Anatha",
+      "symbol": "wANATHA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "RAMP DEFI",
+      "symbol": "RAMP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "MANTRA DAO",
+      "symbol": "OM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PARSIQ",
+      "symbol": "PRQ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "The Sandbox",
+      "symbol": "SAND"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Concentrated Voting Power",
+      "symbol": "CVP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DSLA",
+      "symbol": "DSLA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Vidya",
+      "symbol": "VIDYA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ren",
+      "symbol": "REN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SORA",
+      "symbol": "XOR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "FunFair",
+      "symbol": "FUN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "GoBlank",
+      "symbol": "BLANK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Pickle Finance",
+      "symbol": "PICKLE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "dForce",
+      "symbol": "DF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "FLOKI",
+      "symbol": "FLOKI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Orchid",
+      "symbol": "OXT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PAX Gold",
+      "symbol": "PAXG"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "WOO Network",
+      "symbol": "WOO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Quant",
+      "symbol": "QNT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Jupiter",
+      "symbol": "JUP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Oraichain Token",
+      "symbol": "ORAI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "TrueFi",
+      "symbol": "TRU"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "MCDEX Token",
+      "symbol": "MCB"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "NuCypher",
+      "symbol": "NU"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Razor Network",
+      "symbol": "RAZOR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Chainlink",
+      "symbol": "LINK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "unFederalReserve",
+      "symbol": "eRSDL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "pTokens BTC",
+      "symbol": "pBTC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "BarterTrade",
+      "symbol": "BART"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "REVV",
+      "symbol": "REVV"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "sUSD",
+      "symbol": "sUSD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Hegic",
+      "symbol": "HEGIC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UnMarshal",
+      "symbol": "MARSH"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Xfinance",
+      "symbol": "XFI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dev",
+      "symbol": "DEV"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "BOND",
+      "symbol": "BOND"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DEXTF Token",
+      "symbol": "DEXTF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Liquity USD",
+      "symbol": "LUSD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "iExec RLC",
+      "symbol": "RLC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Launchpool",
+      "symbol": "LPOOL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "cVault.finance",
+      "symbol": "CORE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Reflexer Ungovernance Token",
+      "symbol": "FLX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "AIOZ Network",
+      "symbol": "AIOZ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "CyberFi Token",
+      "symbol": "CFi"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Wise Token",
+      "symbol": "WISE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Kylin",
+      "symbol": "KYL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Benchmark Protocol",
+      "symbol": "MARK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Gnosis",
+      "symbol": "GNO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "chads.vc",
+      "symbol": "CHADS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Poolz Finance",
+      "symbol": "POOLZ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Mask Network",
+      "symbol": "MASK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dai",
+      "symbol": "DAI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SushiSwap",
+      "symbol": "SUSHI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Fyooz",
+      "symbol": "FYZ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Holo",
+      "symbol": "HOT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "QuiverX",
+      "symbol": "QRX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UniTrade",
+      "symbol": "TRADE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Umbrella Network",
+      "symbol": "UMB"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Bird.Money",
+      "symbol": "BIRD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Axion",
+      "symbol": "AXN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Bridge Mutual",
+      "symbol": "BMI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Paypolitan Token",
+      "symbol": "EPAN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Metaverse Index",
+      "symbol": "MVI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SmartCredit Token",
+      "symbol": "SMARTCREDIT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dogelon",
+      "symbol": "ELON"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "XCAD Network",
+      "symbol": "XCAD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Boolberry",
+      "symbol": "BBR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Tornado Cash",
+      "symbol": "TORN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "WAXE",
+      "symbol": "WAXE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DFOhub",
+      "symbol": "buidl"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Polygon",
+      "symbol": "MATIC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Robonomics",
+      "symbol": "XRT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "xToken",
+      "symbol": "XTK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Aave",
+      "symbol": "AAVE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Tenset",
+      "symbol": "10SET"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Origin Protocol",
+      "symbol": "OGN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Polkastarter",
+      "symbol": "POLS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Unibright",
+      "symbol": "UBT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DIA",
+      "symbol": "DIA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Frax",
+      "symbol": "FRAX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "KEEP Token",
+      "symbol": "KEEP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "88mph.app",
+      "symbol": "MPH"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Alchemist",
+      "symbol": "⚗️"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dego Finance",
+      "symbol": "DEGO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "pNetwork",
+      "symbol": "PNT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Finxflo",
+      "symbol": "FXF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "GET",
+      "symbol": "GET"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SAITAMA",
+      "symbol": "SAITAMA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PolkaFoundry",
+      "symbol": "PKF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Function X",
+      "symbol": "FX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Swipe",
+      "symbol": "SXP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "tBTC",
+      "symbol": "TBTC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SingularityNET Token",
+      "symbol": "AGIX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Request Token",
+      "symbol": "REQ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "WHALE",
+      "symbol": "WHALE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Pinakion",
+      "symbol": "PNK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Evolution Land Global Token",
+      "symbol": "RING"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Cardstack",
+      "symbol": "CARD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Fei USD",
+      "symbol": "FEI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "APY.Finance",
+      "symbol": "APY"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SHIBA INU",
+      "symbol": "SHIB"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dypius",
+      "symbol": "DYP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ocean Protocol",
+      "symbol": "OCEAN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Strong",
+      "symbol": "STRONG"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Shopping.io",
+      "symbol": "SPI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Binance Wrapped BTC",
+      "symbol": "BBTC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Doki Doki Finance",
+      "symbol": "DOKI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Delta Financial",
+      "symbol": "DELTA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Unistake",
+      "symbol": "UNISTAKE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Tadpole",
+      "symbol": "TAD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Maker",
+      "symbol": "MKR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "GraphLinq",
+      "symbol": "GLQ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Harvest Finance",
+      "symbol": "FARM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Wrapped CrescoFin",
+      "symbol": "wCRES"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "USD Coin",
+      "symbol": "USDC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Aragon",
+      "symbol": "ANT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "RFOX",
+      "symbol": "RFOX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Lattice Token",
+      "symbol": "LTX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Meta",
+      "symbol": "MTA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Rubic",
+      "symbol": "RBC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "LUKSO",
+      "symbol": "LYXe"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Syntropy",
+      "symbol": "NOIA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Bella Protocol",
+      "symbol": "BEL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ETH 2x Flexible Leverage Index",
+      "symbol": "ETH2x-FLI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Trace Token",
+      "symbol": "TRAC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Celsius",
+      "symbol": "CEL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Monolith TKN",
+      "symbol": "TKN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Crowns",
+      "symbol": "CWS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "OptionRoom Token",
+      "symbol": "ROOM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "UniCrypt",
+      "symbol": "UNCX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ambire AdEx",
+      "symbol": "ADX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "YOP",
+      "symbol": "YOP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "LGCY Network",
+      "symbol": "LGCY"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Rio Fuel Token",
+      "symbol": "RFuel"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Zenfuse",
+      "symbol": "ZEFU"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Minds",
+      "symbol": "MINDS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "MahaDAO",
+      "symbol": "MAHA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Nexo",
+      "symbol": "NEXO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SYNC",
+      "symbol": "SYNC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "saffron.finance",
+      "symbol": "SFI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Stabilize Token",
+      "symbol": "STBZ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "K21",
+      "symbol": "K21"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "0chain",
+      "symbol": "ZCN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Balancer",
+      "symbol": "BAL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Band Protocol",
+      "symbol": "BAND"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Swapfolio",
+      "symbol": "SWFL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Loopring",
+      "symbol": "LRC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ethernity Chain",
+      "symbol": "ERN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Perpetual",
+      "symbol": "PERP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "StormX",
+      "symbol": "STMX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "GYSR",
+      "symbol": "GYSR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "World Token",
+      "symbol": "WORLD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Compound",
+      "symbol": "COMP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Synthetix",
+      "symbol": "SNX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DLP Duck Token",
+      "symbol": "DUCK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ethereum Name Service",
+      "symbol": "ENS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Chain Games",
+      "symbol": "CHAIN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ZEN Exchange Token",
+      "symbol": "ZCX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PowerTrade Fuel",
+      "symbol": "PTF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Decentralized Insurance Protocol",
+      "symbol": "DIP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Tribe",
+      "symbol": "TRIBE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Convergence",
+      "symbol": "CONV"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "The Graph",
+      "symbol": "GRT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Rootkit Finance",
+      "symbol": "ROOT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Kine Governance Token",
+      "symbol": "KINE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "TrustSwap Token",
+      "symbol": "SWAP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "BEPRO Network",
+      "symbol": "BEPRO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Terra Virtua Kolect",
+      "symbol": "TVK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SIREN",
+      "symbol": "SI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "OMG Network",
+      "symbol": "OMG"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Terra",
+      "symbol": "LUNA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dextrust",
+      "symbol": "DETS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ampleforth",
+      "symbol": "AMPL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Polkamarkets",
+      "symbol": "POLK"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Curve DAO Token",
+      "symbol": "CRV"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "MEME",
+      "symbol": "MEME"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ExNetwork Token",
+      "symbol": "EXNT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Tether",
+      "symbol": "USDT"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Atari Token",
+      "symbol": "ATRI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Yield",
+      "symbol": "YLD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "COTI",
+      "symbol": "COTI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Curate",
+      "symbol": "XCUR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Injective",
+      "symbol": "INJ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PILLAR",
+      "symbol": "PLR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "0x",
+      "symbol": "ZRX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "WCELO",
+      "symbol": "WCELO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SuperFarm",
+      "symbol": "SUPER"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Ferrum Network",
+      "symbol": "FRM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "COIN",
+      "symbol": "COIN"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ankrETH",
+      "symbol": "aETHc"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Modefi",
+      "symbol": "MOD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "SURF Finance",
+      "symbol": "SURF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "renBTC",
+      "symbol": "renBTC"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Everest",
+      "symbol": "ID"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DMM: Governance",
+      "symbol": "DMG"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Exeedme",
+      "symbol": "XED"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "GOVI",
+      "symbol": "GOVI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Dopex Governance Token",
+      "symbol": "DPX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Hermez Network Token",
+      "symbol": "HEZ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DxSale Network",
+      "symbol": "SALE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Rally",
+      "symbol": "RLY"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Realio Network",
+      "symbol": "RIO"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Verasity",
+      "symbol": "VRA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "PUSH",
+      "symbol": "PUSH"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "YfDAI.finance",
+      "symbol": "Yf-DAI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Fractal",
+      "symbol": "FCL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Enjin Coin",
+      "symbol": "ENJ"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "GIVLY Coin",
+      "symbol": "GIV"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Visor.Finance",
+      "symbol": "VISR"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Yield",
+      "symbol": "YLD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Hoge Finance",
+      "symbol": "HOGE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "DuckDaoDime",
+      "symbol": "DDIM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Moss Carbon Credit",
+      "symbol": "MCO2"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Rarible",
+      "symbol": "RARI"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Reef",
+      "symbol": "REEF"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Amp",
+      "symbol": "AMP"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "FalconSwap Token",
+      "symbol": "FSW"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "OlympusDAO",
+      "symbol": "OHM"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Illuvium",
+      "symbol": "ILV"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Gala",
+      "symbol": "GALA"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Convex Token",
+      "symbol": "CVX"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Spell Token",
+      "symbol": "SPELL"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "OpenDAO",
+      "symbol": "SOS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Gas DAO",
+      "symbol": "GAS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "Binance USD",
+      "symbol": "BUSD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "MetisDAO",
+      "symbol": "Metis"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "LooksRare",
+      "symbol": "LOOKS"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "X2Y2Token",
+      "symbol": "X2Y2"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ApeCoin (APE)",
+      "symbol": "APE"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "StargateToken",
+      "symbol": "STG"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "XSGD",
+      "symbol": "XSGD"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ZEDXION",
+      "symbol": "ZEDXION"
+    }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "MAGIC",
+      "symbol": "MAGIC"
+    }
+  }
+]
