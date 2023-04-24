@@ -42,8 +42,8 @@ class OrderApi(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         order_obj.coin = request.data["coin"] if "coin" in request.data else 0
-        order_obj.coin_amount = (
-            request.data["coin_amount"] if "coin_amount" in request.data else 0
+        order_obj.coin_count = (
+            request.data["coin_count"] if "coin_count" in request.data else 0
         )
         order_obj.order_price = (
             request.data["order_price"] if "order_price" in request.data else 0
@@ -109,5 +109,7 @@ class NewOrderApi(APIView):
                 {"status": "this coin not exists"},
                 status=status.HTTP_400_BAD_REQUEST,
             )
+        
+
 
         return Response({"message": "ok"}, status=status.HTTP_200_OK)
