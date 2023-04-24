@@ -2670,5 +2670,14 @@
       "symbol": "MAGIC",
       "price": "4"
     }
+  },
+
+  {
+    "model": "coin.CoinTypes",
+    "fields": {
+      "name": "ABAN",
+      "symbol": "ABAN",
+      "price": "4"
+    }
   }
 ]
