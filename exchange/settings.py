@@ -30,6 +30,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework_simplejwt",
+    "balance.apps.BalanceConfig",
+    "coin.apps.CoinConfig",
+    "healthcheck.apps.HealthcheckConfig",
+    "order.apps.OrderConfig",
+    "user.apps.UserConfig",
 ]
 
 MIDDLEWARE = [
