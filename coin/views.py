@@ -1,13 +1,14 @@
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
 from .models import CoinTypes as CoinTypesModel
 from .serializers import CoinTypesSerializers
+from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
 
 
 class CoinApi(APIView):
     # create coin
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def post(self, request):
         coin_serializer = CoinTypesSerializers(data=request.data)
         if coin_serializer.is_valid():
@@ -17,6 +18,7 @@ class CoinApi(APIView):
             return Response(coin_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # get coin data
+    @method_permission_classes([IsLogginedUser])
     def get(self, request, coin_id):
         try:
             coin_obj = CoinTypesModel.objects.get(pk=coin_id)
@@ -29,6 +31,7 @@ class CoinApi(APIView):
         return Response(coin_serializer.data, status=status.HTTP_200_OK)
 
     # update coin by coin_id
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def put(self, request, coin_id):
         try:
             coin_obj = CoinTypesModel.objects.get(pk=coin_id)
@@ -50,6 +53,7 @@ class CoinApi(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     # delete coin by coin_id
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def delete(self, request, coin_id):
         try:
             coin_obj = CoinTypesModel.objects.get(pk=coin_id)

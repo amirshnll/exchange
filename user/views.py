@@ -3,10 +3,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import CustomUser as CustomUserModel
 from .serializers import CustomUserSerializers, RegisterNewUserSerializer
+from .permissions import method_permission_classes, IsLogginedUser
 
 
 class UserApi(APIView):
     # get user
+    @method_permission_classes([IsLogginedUser])
     def get(self, request):
         try:
             user_obj = CustomUserModel.objects.get(pk=request.user.id)

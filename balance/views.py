@@ -3,10 +3,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Balance as BalanceModel
 from .serializers import BalanceSerializers
+from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
 
 
 class BalanceApi(APIView):
     # create balance
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def post(self, request):
         balance_serializer = BalanceSerializers(data=request.data)
         if balance_serializer.is_valid():
@@ -18,6 +20,7 @@ class BalanceApi(APIView):
             )
 
     # get user balance
+    @method_permission_classes([IsLogginedUser])
     def get(self, request, balance_id):
         try:
             balance_obj = BalanceModel.objects.get(pk=balance_id)
@@ -30,6 +33,7 @@ class BalanceApi(APIView):
         return Response(balance_serializer.data, status=status.HTTP_200_OK)
 
     # update balance by balance_id
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def put(self, request, balance_id):
         try:
             balance_obj = BalanceModel.objects.get(pk=balance_id)
@@ -47,6 +51,7 @@ class BalanceApi(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     # delete balance by balance_id
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def delete(self, request, balance_id):
         try:
             balance_obj = BalanceModel.objects.get(pk=balance_id)
@@ -61,6 +66,7 @@ class BalanceApi(APIView):
 
 class UserBalanceApi(APIView):
     # get user balance by user
+    @method_permission_classes([IsLogginedUser])
     def get(self, request):
         try:
             balance_obj = BalanceModel.objects.get(user=request.user.id)
@@ -73,6 +79,7 @@ class UserBalanceApi(APIView):
         return Response(balance_serializer.data, status=status.HTTP_200_OK)
 
     # update balance by user
+    @method_permission_classes([IsLogginedUser])
     def put(self, request):
         try:
             balance_obj = BalanceModel.objects.get(user=request.user.id)

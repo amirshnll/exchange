@@ -3,10 +3,12 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Order as OrderModel, OrderStatus as OrderStatusModel
 from .serializers import OrderSerializers
+from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
 
 
 class OrderApi(APIView):
     # create order
+    @method_permission_classes([IsLogginedUser])
     def post(self, request):
         order_serializer = OrderSerializers(data=request.data)
         if order_serializer.is_valid():
@@ -16,6 +18,7 @@ class OrderApi(APIView):
             return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # get order
+    @method_permission_classes([IsLogginedUser])
     def get(self, request, order_id):
         try:
             order_obj = OrderModel.objects.get(pk=order_id)
@@ -28,6 +31,7 @@ class OrderApi(APIView):
         return Response(order_serializer.data, status=status.HTTP_200_OK)
 
     # update order by order_id
+    @method_permission_classes([IsLogginedUser])
     def put(self, request, order_id):
         try:
             order_obj = OrderModel.objects.get(pk=order_id)
@@ -54,6 +58,7 @@ class OrderApi(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     # delete order by order_id
+    @method_permission_classes([IsLogginedUser, IsAdmin])
     def delete(self, request, order_id):
         try:
             order_obj = OrderModel.objects.get(pk=order_id)

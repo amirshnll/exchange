@@ -6,7 +6,17 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 
+class UserTypes(models.TextChoices):
+    CUSTOMER = "CUSTOMER"
+    ADMIN = "ADMIN"
+
+
 class CustomUser(AbstractUser):
+    type = models.CharField(
+        choices=UserTypes,
+        default=UserTypes.CUSTOMER,
+        max_length=10,
+    )
     is_deleted = models.BooleanField(default=False)
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
