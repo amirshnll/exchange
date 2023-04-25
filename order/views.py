@@ -156,8 +156,8 @@ class NewOrderApi(APIView):
                     )
 
                     if pending_count + purchase_price >= settings.MINIMUM_PER_PURCHASE:
-                        pending_order_handler.pending_order(coin_id=coin_obj.id)
-                        exchange_count = count + pending_count
+                        pending_count = pending_order_handler.pending_order(coin_id=coin_obj.id)
+                        exchange_count = purchase_price + pending_count
 
                         # call exchange
                         external_exchange_handler = ExternalExchangeHandler()

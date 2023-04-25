@@ -18,8 +18,9 @@ class PandingOrderHandler:
     def _update_pending(self, coin_id, value):
         redis_handler = RedisHandler()
         old_value = self.get_pending_count(coin_id=coin_id)
-        redis_handler.remove_item(coin_id, value)
-        redis_handler.set_item(coin_id, old_value + value)
+        if old_value > 0:
+            redis_handler.remove_item(coin_id)
+            redis_handler.set_item(coin_id, old_value + value)
 
     def _set_pending_order_done(self, coin_id):
         OrderModel.objects.filter(coin=coin_id, status=OrderStatusModel.PENDING).update(
@@ -52,7 +53,7 @@ class PandingOrderHandler:
                 pending_count,
                 byteorder="little",
             )
-
+        
         return 0
 
     def set_pending(self, coin_id, value):
