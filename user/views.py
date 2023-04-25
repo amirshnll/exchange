@@ -8,7 +8,7 @@ from .serializers import (
     RegisterNewUserAdminSerializer,
 )
 from .permissions import method_permission_classes, IsLogginedUser
-from rest_framework_simplejwt.tokens import RefreshToken
+from .defs import make_auth_obj
 
 
 class UserApi(APIView):
@@ -88,14 +88,7 @@ class UserAuthApi(APIView):
             )
 
         if user_obj.check_password(password):
-            user_token = RefreshToken.for_user(user_obj)
-            response = {
-                "token": str(user_token.access_token),
-                "refresh": str(user_token),
-                "user_id": user_obj.id,
-                "username": user_obj.username,
-            }
-            return Response(response, status=status.HTTP_200_OK)
+            return Response(make_auth_obj(user_obj), status=status.HTTP_200_OK)
         else:
             return Response(
                 {
