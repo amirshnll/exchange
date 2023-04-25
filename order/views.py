@@ -16,17 +16,15 @@ class OrderApi(APIView):
     @method_permission_classes([IsLogginedUser])
     def post(self, request):
         order_serializer = OrderValidationSerializer(data=request.data)
-        if order_serializer.is_valid():
-            order_serializer = OrderSerializers(data=request.data)
-            if order_serializer.is_valid():
-                order_serializer.save()
-                return Response(order_serializer.data, status=status.HTTP_201_CREATED)
-            else:
-                return Response(
-                    order_serializer.errors, status=status.HTTP_400_BAD_REQUEST
-                )
-        else:
+        if not order_serializer.is_valid():
             return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        order_serializer = OrderSerializers(data=request.data)
+        if not order_serializer.is_valid():
+            return Response(
+                order_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+            )
+        order_serializer.save()
+        return Response(order_serializer.data, status=status.HTTP_201_CREATED)
 
     # get order
     @method_permission_classes([IsLogginedUser])
@@ -95,49 +93,65 @@ class NewOrderApi(APIView):
     def post(self, request):
         order_serializer = OrderValidationSerializer(data=request.data)
 
+        if not order_serializer.is_valid():
+            return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        name = order_serializer.validated_data["name"]
+        count = order_serializer.validated_data["count"]
+
+        coin_obj = CoinTypesModel.objects.get(name=name)
+
+        purchase_price = count * int(coin_obj.price)
+
+        balance_handler = BalanceHandler()
+        if (
+            balance_handler.is_enough(user_id=request.user.id, value=purchase_price)
+            == False
+        ):
+            return Response(
+                {"status": "error", "message": "user balance is not enough"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # new order obj
+        new_order = {
+            "user": request.user.id,
+            "coin": coin_obj.id,
+            "coin_count": count,
+            "order_price": purchase_price,
+            "status": OrderStatusModel.PENDING,
+        }
+
+        # set purchase status condition minimum per purchase
+        if purchase_price >= settings.MINIMUM_PER_PURCHASE:
+            new_order["status"] = OrderStatusModel.DONE
+
+        # pending order handler
+        pending_order_handler = PandingOrderHandler()
+
+        order_serializer = OrderSerializers(data=new_order)
         if order_serializer.is_valid():
-            name = order_serializer.validated_data["name"]
-            count = order_serializer.validated_data["count"]
+            order_serializer.save()
 
-            coin_obj = CoinTypesModel.objects.get(name=name)
+            balance_handler.decrease(
+                user_id=request.user.id, decreased_value=purchase_price
+            )
 
-            purchase_price = count * int(coin_obj.price)
-
-            balance_handler = BalanceHandler()
-            if (
-                balance_handler.is_enough(user_id=request.user.id, value=purchase_price)
-                == False
-            ):
-                return Response(
-                    {"status": "error", "message": "user balance is not enough"},
-                    status=status.HTTP_400_BAD_REQUEST,
+            if order_serializer.data["status"] == OrderStatusModel.DONE:
+                pending_count = pending_order_handler.pending_order(
+                    coin_id=coin_obj.id
                 )
+                exchange_count = purchase_price + pending_count
 
-            # new order obj
-            new_order = {
-                "user": request.user.id,
-                "coin": coin_obj.id,
-                "coin_count": count,
-                "order_price": purchase_price,
-                "status": OrderStatusModel.PENDING,
-            }
-
-            # set purchase status condition minimum per purchase
-            if purchase_price >= settings.MINIMUM_PER_PURCHASE:
-                new_order["status"] = OrderStatusModel.DONE
-
-            # pending order handler
-            pending_order_handler = PandingOrderHandler()
-
-            order_serializer = OrderSerializers(data=new_order)
-            if order_serializer.is_valid():
-                order_serializer.save()
-
-                balance_handler.decrease(
-                    user_id=request.user.id, decreased_value=purchase_price
+                # call exchange
+                external_exchange_handler = ExternalExchangeHandler()
+                external_exchange_handler.buy_from_exchange(
+                    coin_name=coin_obj.name, count=exchange_count
                 )
-
-                if order_serializer.data["status"] == OrderStatusModel.DONE:
+            else:
+                pending_count = pending_order_handler.get_pending_count(
+                    coin_id=coin_obj.id
+                )
+                if pending_count + purchase_price >= settings.MINIMUM_PER_PURCHASE:
                     pending_count = pending_order_handler.pending_order(
                         coin_id=coin_obj.id
                     )
@@ -149,25 +163,8 @@ class NewOrderApi(APIView):
                         coin_name=coin_obj.name, count=exchange_count
                     )
                 else:
-                    pending_count = pending_order_handler.get_pending_count(
-                        coin_id=coin_obj.id
+                    pending_order_handler.set_pending(
+                        coin_id=coin_obj.id, value=purchase_price
                     )
-                    if pending_count + purchase_price >= settings.MINIMUM_PER_PURCHASE:
-                        pending_count = pending_order_handler.pending_order(
-                            coin_id=coin_obj.id
-                        )
-                        exchange_count = purchase_price + pending_count
 
-                        # call exchange
-                        external_exchange_handler = ExternalExchangeHandler()
-                        external_exchange_handler.buy_from_exchange(
-                            coin_name=coin_obj.name, count=exchange_count
-                        )
-                    else:
-                        pending_order_handler.set_pending(
-                            coin_id=coin_obj.id, value=purchase_price
-                        )
-
-            return Response({"status": "success"}, status=status.HTTP_200_OK)
-        else:
-            return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"status": "success"}, status=status.HTTP_200_OK)

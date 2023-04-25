@@ -6,8 +6,7 @@ from .models import Order as OrderModel, OrderStatus as OrderStatusModel
 class PandingOrderHandler:
     def _get_coin(self, coin_id):
         try:
-            coin_obj = CoinTypesModel.objects.get(pk=coin_id)
-            return coin_obj
+            return CoinTypesModel.objects.get(pk=coin_id)
         except CoinTypesModel.DoesNotExist:
             return None
 
@@ -36,8 +35,7 @@ class PandingOrderHandler:
 
     def get_pending_count(self, coin_id):
         redis_handler = RedisHandler()
-        pending_count = redis_handler.get_item(coin_id)
-        return pending_count
+        return redis_handler.get_item(coin_id)
 
     def set_pending(self, coin_id, value):
         redis_handler = RedisHandler()
