@@ -5,4 +5,4 @@ from .models import CoinTypes as CoinTypesModel
 class CoinTypesSerializers(serializers.ModelSerializer):
     class Meta:
         model = CoinTypesModel
-        fields = "__all__"
+        fields = ["id", "name", "symbol", "price"]

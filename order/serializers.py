@@ -6,7 +6,7 @@ from coin.defs import coin_is_exists
 class OrderSerializers(serializers.ModelSerializer):
     class Meta:
         model = OrderModel
-        fields = "__all__"
+        fields = ["id", "user", "coin", "coin_count", "order_price", "status"]
 
 
 class OrderValidationSerializer(serializers.Serializer):

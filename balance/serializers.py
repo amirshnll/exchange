@@ -6,7 +6,7 @@ from user.defs import user_is_exists
 class BalanceSerializers(serializers.ModelSerializer):
     class Meta:
         model = BalanceModel
-        fields = "__all__"
+        fields = ["user", "balance"]
 
 
 class BalanceValidationSerializer(serializers.Serializer):
