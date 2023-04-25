@@ -38,7 +38,7 @@ class UserApi(APIView):
 
 
 class UserAdminApi(APIView):
-    # create new user
+    # create new admin
     def post(self, request):
         serializer = RegisterNewUserAdminSerializer(data=request.data)
         if serializer.is_valid():

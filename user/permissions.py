@@ -27,7 +27,7 @@ class IsLogginedUser(permissions.BasePermission):
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.user.tyoe == "ADMIN":
+        if request.user.type == "ADMIN":
             return True
         else:
             return False
