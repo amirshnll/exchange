@@ -36,3 +36,11 @@ class RegisterNewUserAdminSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+class AuthValidationSerializer(serializers.Serializer):
+    username = serializers.IntegerField(required=True)
+    password = serializers.IntegerField(required=True)
+
+    def validate(self, attribute):
+        return attribute

@@ -6,6 +6,7 @@ from .serializers import (
     CustomUserSerializers,
     RegisterNewUserSerializer,
     RegisterNewUserAdminSerializer,
+    AuthValidationSerializer,
 )
 from .permissions import method_permission_classes, IsLogginedUser
 from .defs import make_auth_obj
@@ -60,20 +61,14 @@ class UserTypeList(APIView):
 class UserAuthApi(APIView):
     # auth user
     def post(self, request):
-        if "username" in request.data:
-            username = request.data["username"]
-        else:
-            return Response(
-                {"status": "username not received"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        balance_serializer = AuthValidationSerializer(data=request.data)
 
-        if "password" in request.data:
-            password = request.data["password"]
+        if balance_serializer.is_valid():
+            username = balance_serializer.validated_data["username"]
+            password = balance_serializer.validated_data["password"]
         else:
             return Response(
-                {"status": "password not received"},
-                status=status.HTTP_400_BAD_REQUEST,
+                balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
             )
 
         try:
