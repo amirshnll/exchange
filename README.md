@@ -30,17 +30,22 @@ AUTH_HEADER_TYPES=Bearer
 
 ## Test
 
-1. user authentication
+1. test all
+```
+python manage.py test
+```
+
+2. user authentication
 ```
 python manage.py test user.tests.UserTestCases.UserAuth
 ```
 
-2.  user balance
+3.  user balance
 ```
 python manage.py test balance.tests.BalanceTestCases.UserBalance
 ```
 
-3. user order
+4. user order
 ```
 python manage.py test order.tests.OrderTestCases.UserOrder
 python manage.py test order.tests.OrderTestCases.MultipleUserOrder
