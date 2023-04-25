@@ -11,11 +11,10 @@ class CoinApi(APIView):
     @method_permission_classes([IsLogginedUser, IsAdmin])
     def post(self, request):
         coin_serializer = CoinTypesSerializers(data=request.data)
-        if coin_serializer.is_valid():
-            coin_serializer.save()
-            return Response(coin_serializer.data, status=status.HTTP_201_CREATED)
-        else:
+        if not coin_serializer.is_valid():
             return Response(coin_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        coin_serializer.save()
+        return Response(coin_serializer.data, status=status.HTTP_201_CREATED)
 
     # get coin data
     @method_permission_classes([IsLogginedUser])
@@ -44,9 +43,8 @@ class CoinApi(APIView):
             coin_obj.name = request.data["balance"]
         if "symbol" in request.data:
             coin_obj.symbol = request.data["symbol"]
-        if "price" in request.data:
-            if request.data["price"] > 0:
-                coin_obj.price = request.data["price"]
+        if "price" in request.data and request.data["price"] > 0:
+            coin_obj.price = request.data["price"]
         coin_obj.save()
         serializer = CoinTypesSerializers(instance=coin_obj, many=False)
 
