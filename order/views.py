@@ -160,9 +160,6 @@ class NewOrderApi(APIView):
                         coin=coin_obj.id, count=exchange_count
                     )
 
-                return Response(
-                    order_serializer.errors, status=status.HTTP_400_BAD_REQUEST
-                )
-
+            return Response({"status": "success"}, status=status.HTTP_200_OK)
         else:
             return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
