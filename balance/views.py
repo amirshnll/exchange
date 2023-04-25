@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from .models import Balance as BalanceModel
 from .serializers import BalanceSerializers, BalanceValidationSerializer
 from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
+from .balance_handler import BalanceHandler
 
 
 class BalanceApi(APIView):
@@ -107,29 +108,63 @@ class ChangeUserBalanceApi(APIView):
     # update balance user
     @method_permission_classes([IsLogginedUser, IsAdmin])
     def post(self, request):
-        order_serializer = BalanceValidationSerializer(data=request.data)
+        balance_serializer = BalanceValidationSerializer(data=request.data)
 
-        if order_serializer.is_valid():
-            user = order_serializer.validated_data["user"]
-            balance = order_serializer.validated_data["balance"]
+        if balance_serializer.is_valid():
+            user = balance_serializer.validated_data["user"]
+            balance = balance_serializer.validated_data["balance"]
         else:
-            return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+            )
 
-        try:
-            balance_obj = BalanceModel.objects.get(user=user)
-        except BalanceModel.DoesNotExist:
-            balance_serializer = BalanceSerializers(data={"user": user})
-            if balance_serializer.is_valid():
-                balance_serializer.save()
-            else:
-                return Response(
-                    {"status": "error", "message": "balance does not exist"},
-                    status=status.HTTP_400_BAD_REQUEST,
-                )
+        balance = BalanceHandler()
+        balance.set(user_id=user, new_value=balance)
+        balance_obj = balance.get(user_id=user)
+        serializer = BalanceSerializers(instance=balance_obj, many=False)
 
-        balance_obj = BalanceModel.objects.get(user=user)
-        balance_obj.balance = balance
-        balance_obj.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class IncreaseUserBalanceApi(APIView):
+    # increase balance user
+    @method_permission_classes([IsLogginedUser, IsAdmin])
+    def post(self, request):
+        balance_serializer = BalanceValidationSerializer(data=request.data)
+
+        if balance_serializer.is_valid():
+            user = balance_serializer.validated_data["user"]
+            balance = balance_serializer.validated_data["balance"]
+        else:
+            return Response(
+                balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        balance = BalanceHandler()
+        balance.increase(user_id=user, increased_value=balance)
+        balance_obj = balance.get(user_id=user)
+        serializer = BalanceSerializers(instance=balance_obj, many=False)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class DecreaseUserBalanceApi(APIView):
+    # decrease balance user
+    @method_permission_classes([IsLogginedUser, IsAdmin])
+    def post(self, request):
+        balance_serializer = BalanceValidationSerializer(data=request.data)
+
+        if balance_serializer.is_valid():
+            user = balance_serializer.validated_data["user"]
+            balance = balance_serializer.validated_data["balance"]
+        else:
+            return Response(
+                balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        balance = BalanceHandler()
+        balance.increase(user_id=user, decreased_value=balance)
+        balance_obj = balance.get(user_id=user)
         serializer = BalanceSerializers(instance=balance_obj, many=False)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
