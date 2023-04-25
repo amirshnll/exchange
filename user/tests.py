@@ -10,7 +10,7 @@ user_list = [
 
 
 class OrderTestCases(TestCase):
-    # python manage.py test user.tests.OrderTestCases.User
+    # python manage.py test user.tests.OrderTestCases.UserAuth
     def UserAuth(self):
         for user in user_list:
             self.clients = APIClient()
