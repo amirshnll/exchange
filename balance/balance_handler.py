@@ -5,17 +5,13 @@ class BalanceHandler:
     # private
     def _user_balance(self, user):
         try:
-            balance_obj = BalanceModel.objects.get(user=user)
-            return balance_obj
+            return BalanceModel.objects.get(user=user)
         except BalanceModel.DoesNotExist:
             return None
 
     def get(self, user_id):
         balance_obj = self._user_balance(user=user_id)
-        if balance_obj is not None:
-            return balance_obj
-
-        return None
+        return balance_obj if balance_obj is not None else None
 
     def set(self, user_id, new_value):
         balance_obj = self._user_balance(user=user_id)
@@ -39,7 +35,4 @@ class BalanceHandler:
 
     def is_enough(self, user_id, value):
         balance_obj = self._user_balance(user=user_id)
-        if balance_obj is not None and balance_obj.balance >= value:
-            return True
-
-        return False
+        return balance_obj is not None and balance_obj.balance >= value
