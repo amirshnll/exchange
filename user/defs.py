@@ -1,4 +1,5 @@
 from .models import CustomUser as CustomUserModel
+from django.conf import settings
 
 
 def delete_user(user):
@@ -8,3 +9,7 @@ def delete_user(user):
         return True  # user deleted
     except CustomUserModel.DoesNotExist:
         return False  # user undeleted
+
+
+def get_token_prefix():
+    return str(settings.AUTH_PREFIX)

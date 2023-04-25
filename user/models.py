@@ -24,11 +24,10 @@ class CustomUser(AbstractUser):
         if created:
             # create user balance
             from balance.defs import create_new_user_balance  # circular import
-
-            user_balance_status = create_new_user_balance(user=instance)
+            user_balance_status = create_new_user_balance(user=instance.id)
 
             if user_balance_status == False:
                 # roll back user registered
                 from .defs import delete_user  # circular import
 
-                delete_user(user=instance)
+                delete_user(user=instance.id)

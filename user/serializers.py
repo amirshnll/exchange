@@ -15,7 +15,7 @@ class RegisterNewUserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = CustomUserModel()
-        user.type = validated_data["type"]
+        user.type = UserTypesModel.CUSTOMER
         user.username = validated_data["username"]
         user.set_password(validated_data["password"])
         user.save()

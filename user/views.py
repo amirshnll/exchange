@@ -77,7 +77,7 @@ class UserAuthApi(APIView):
             )
 
         try:
-            user_obj = CustomUserModel.objects.get(username=username, is_deactive=False)
+            user_obj = CustomUserModel.objects.get(username=username, is_deleted=False)
         except CustomUserModel.DoesNotExist:
             return Response(
                 {

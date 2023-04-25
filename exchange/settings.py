@@ -138,7 +138,7 @@ SIMPLE_JWT = {
     "VERIFYING_KEY": None,
     "AUDIENCE": None,
     "ISSUER": None,
-    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_HEADER_TYPES": (env("AUTH_HEADER_TYPES"),),
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "user_id",
@@ -155,3 +155,6 @@ SIMPLE_JWT = {
 REDIS_HOST = env("REDIS_HOST")
 REDIS_DB = int(env("REDIS_DB"))
 REDIS_PORT = int(env("REDIS_PORT"))
+
+# token prefix
+AUTH_PREFIX = env("AUTH_PREFIX")

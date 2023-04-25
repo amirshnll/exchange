@@ -10,10 +10,16 @@ class OrderApi(APIView):
     # create order
     @method_permission_classes([IsLogginedUser])
     def post(self, request):
-        order_serializer = OrderSerializers(data=request.data)
+        order_serializer = OrderValidationSerializer(data=request.data)
         if order_serializer.is_valid():
-            order_serializer.save()
-            return Response(order_serializer.data, status=status.HTTP_201_CREATED)
+            order_serializer = OrderSerializers(data=request.data)
+            if order_serializer.is_valid():
+                order_serializer.save()
+                return Response(order_serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(
+                    order_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+                )
         else:
             return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -87,6 +93,5 @@ class NewOrderApi(APIView):
         if order_serializer.is_valid():
             name = order_serializer.validated_data["name"]
             count = order_serializer.validated_data["count"]
-
         else:
             return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
