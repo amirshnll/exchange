@@ -1,8 +1,9 @@
 # exchange
 
-this is a code challenge.
+this is a code challenge. (technical task)
 
 ## Package Used list
+
 ```
 Django==4.2
 djangorestframework==3.14.0
@@ -16,6 +17,7 @@ gunicorn==20.1.0
 ```
 
 ## env variables
+
 ```
 SECRET_KEY=abcdefghijklmnopqrstuvwxyz
 MINIMUM_PER_PURCHASE=10
@@ -31,21 +33,25 @@ AUTH_HEADER_TYPES=Bearer
 ## Test
 
 1. test all
+
 ```
 python manage.py test
 ```
 
 2. user authentication
+
 ```
 python manage.py test user.tests.UserTestCases.test_UserAuth
 ```
 
 3.  user balance
+
 ```
 python manage.py test balance.tests.BalanceTestCases.test_UserBalance
 ```
 
 4. user order
+
 ```
 python manage.py test order.tests.OrderTestCases.test_UserOrder
 python manage.py test order.tests.OrderTestCases.test_MultipleUserOrder
@@ -54,21 +60,29 @@ python manage.py test order.tests.OrderTestCases.test_MultipleUserOrder
 ## Run
 
 1. build project
+
 ```
 docker-compose build
 ```
 
 2. start project
+
 ```
 docker-compose up -d
 ```
 
 3. check health
+
 ```
 curl http://localhost:8000/api/v1/healthcheck/
 ```
 
 4. import coin data from fixtures
+
 ```
 python manage.py loaddata fixtures/*
 ```
+
+## endpoint documentation (postman)
+
+[Exchange.postman_collection.json](postman/Exchange.postman_collection.json)
