@@ -14,10 +14,12 @@ class BalanceValidationSerializer(serializers.Serializer):
     balance = serializers.IntegerField(required=True)
 
     def validate(self, attribute):
-        if attribute["balance"] <= 0:
+        if user_is_exists(attribute["user"]) is False:
+            raise serializers.ValidationError({"user": "this user not exists"})
+        """ i changed my model field to positive integer
+        elif attribute["balance"] <= 0:
             raise serializers.ValidationError(
                 {"balance": "balance must greater than zero"}
             )
-        elif user_is_exists(attribute["user"]) is False:
-            raise serializers.ValidationError({"user": "this user not exists"})
+            """
         return attribute
