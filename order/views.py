@@ -143,12 +143,12 @@ class NewOrderApi(APIView):
                     pending_count = pending_order_handler.pending_order(
                         coin_id=coin_obj.id
                     )
-                    exchange_count = count + pending_count
+                    exchange_count = purchase_price + pending_count
 
                     # call exchange
                     external_exchange_handler = ExternalExchangeHandler()
                     external_exchange_handler.buy_from_exchange(
-                        coin=coin_obj.id, count=exchange_count
+                        coin_name=coin_obj.name, count=exchange_count
                     )
                 else:
                     pending_count = pending_order_handler.get_pending_count(
@@ -162,7 +162,7 @@ class NewOrderApi(APIView):
                         # call exchange
                         external_exchange_handler = ExternalExchangeHandler()
                         external_exchange_handler.buy_from_exchange(
-                            coin=coin_obj.id, count=exchange_count
+                            coin_name=coin_obj.name, count=exchange_count
                         )
                     else:
                         pending_order_handler.set_pending(
