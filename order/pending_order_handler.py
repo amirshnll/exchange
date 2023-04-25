@@ -11,17 +11,6 @@ class PandingOrderHandler:
         except CoinTypesModel.DoesNotExist:
             return None
 
-    def _add_pending(self, coin_id, value):
-        redis_handler = RedisHandler()
-        redis_handler.remove_item(coin_id)
-        redis_handler.set_item(coin_id, value)
-
-    def _update_pending(self, coin_id, value):
-        redis_handler = RedisHandler()
-        old_value = self.get_pending_count(coin_id=coin_id)
-        redis_handler.remove_item(coin_id)
-        redis_handler.set_item(coin_id, old_value + value)
-
     def _set_pending_order_done(self, coin_id):
         OrderModel.objects.filter(coin=coin_id, status=OrderStatusModel.PENDING).update(
             status=OrderStatusModel.DONE
@@ -48,16 +37,9 @@ class PandingOrderHandler:
     def get_pending_count(self, coin_id):
         redis_handler = RedisHandler()
         pending_count = redis_handler.get_item(coin_id)
-        if pending_count:
-            return int.from_bytes(
-                pending_count,
-                byteorder="little",
-            )
-
-        return 0
+        return pending_count
 
     def set_pending(self, coin_id, value):
-        if self.get_pending_count(coin_id=coin_id) == 0:
-            self._add_pending(coin_id=coin_id, value=value)
-        else:
-            self._update_pending(coin_id=coin_id, value=value)
+        redis_handler = RedisHandler()
+        old_value = self.get_pending_count(coin_id=coin_id)
+        redis_handler.set_item(coin_id, old_value + value)
