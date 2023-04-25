@@ -4,6 +4,11 @@ from rest_framework.response import Response
 from .models import Order as OrderModel, OrderStatus as OrderStatusModel
 from .serializers import OrderSerializers, OrderValidationSerializer
 from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
+from balance.balance_handler import BalanceHandler
+from django.conf import settings
+from coin.models import CoinTypes as CoinTypesModel
+from exchange.redis_handler import RedisHandler
+from exchange.exchange_handler import ExternalExchangeHandler
 
 
 class OrderApi(APIView):
@@ -93,5 +98,55 @@ class NewOrderApi(APIView):
         if order_serializer.is_valid():
             name = order_serializer.validated_data["name"]
             count = order_serializer.validated_data["count"]
+
+            coin_obj = CoinTypesModel.objects.get(name=name)
+
+            purchase_price = count * coin_obj.price
+
+            balance_handler = BalanceHandler()
+            if (
+                balance_handler.is_enough(user_id=request.user.id, value=purchase_price)
+                == False
+            ):
+                return Response(
+                    {"status": "error", "message": "user balance is not enough"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+            # new order obj
+            new_order = {
+                "user": request.user.id,
+                "coin": coin_obj.id,
+                "coin_count": count,
+                "order_price": coin_obj.price,
+                "status": "",
+            }
+
+            # set purchase status condition minimum per purchase
+            if count >= settings.MINIMUM_PER_PURCHASE:
+                new_order["status"] = OrderStatusModel.DONE
+            else:
+                new_order["status"] = OrderStatusModel.PENDING
+
+            order_serializer = OrderSerializers(data=new_order)
+            if order_serializer.is_valid():
+                order_serializer.save()
+
+                # call exchange
+                external_exchange_handler = ExternalExchangeHandler()
+                external_exchange_handler.buy_from_exchange(
+                    coin=coin_obj.id, count=count
+                )
+
+                
+
+                balance_handler.decrease(
+                    user_id=request.user.id, decreased_value=purchase_price
+                )
+            else:
+                return Response(
+                    order_serializer.errors, status=status.HTTP_400_BAD_REQUEST
+                )
+
         else:
             return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

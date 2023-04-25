@@ -5,3 +5,4 @@ django-cors-headers==3.13.0
 djangorestframework-recursive==0.1.2
 djangorestframework-simplejwt==5.2.0
 decorator==5.1.1
+redis==4.5.4

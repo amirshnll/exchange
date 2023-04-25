@@ -38,7 +38,7 @@ class BalanceTestCases(TestCase):
             user_balance = self.clients.get(
                 "/api/v1/balance/user/", {}, **{"HTTP_AUTHORIZATION": user_token}
             ).json()
-            print("old balance: ", user["username"], user_balance["balance"])
+            # print("old balance: ", user["username"], user_balance["balance"])
 
             self.clients.post(
                 "/api/v1/balance/user/increase/",
@@ -49,4 +49,4 @@ class BalanceTestCases(TestCase):
             user_balance = self.clients.get(
                 "/api/v1/balance/user/", {}, **{"HTTP_AUTHORIZATION": user_token}
             ).json()
-            print("new balance: ", user["username"], user_balance["balance"])
+            # print("new balance: ", user["username"], user_balance["balance"])

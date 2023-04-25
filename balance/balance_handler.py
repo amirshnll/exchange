@@ -36,3 +36,10 @@ class BalanceHandler:
         if balance_obj is not None:
             balance_obj.balance -= decreased_value
             balance_obj.save()
+
+    def is_enough(self, user_id, value):
+        balance_obj = self._user_balance(user=user_id)
+        if balance_obj is not None and balance_obj.balance >= value:
+            return True
+
+        return False
