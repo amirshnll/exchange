@@ -7,8 +7,8 @@ from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
 from balance.balance_handler import BalanceHandler
 from django.conf import settings
 from coin.models import CoinTypes as CoinTypesModel
-from exchange.redis_handler import RedisHandler
 from exchange.exchange_handler import ExternalExchangeHandler
+from .pending_order_handler import PandingOrderHandler
 
 
 class OrderApi(APIView):
@@ -128,22 +128,38 @@ class NewOrderApi(APIView):
             else:
                 new_order["status"] = OrderStatusModel.PENDING
 
+            # pending order handler
+            pending_order_handler = PandingOrderHandler()
+
             order_serializer = OrderSerializers(data=new_order)
             if order_serializer.is_valid():
                 order_serializer.save()
 
+                pending_count = pending_order_handler.pending_order(coin_id=coin_obj.id)
+                exchange_count = count + pending_count
+
                 # call exchange
                 external_exchange_handler = ExternalExchangeHandler()
                 external_exchange_handler.buy_from_exchange(
-                    coin=coin_obj.id, count=count
+                    coin=coin_obj.id, count=exchange_count
                 )
-
-                
 
                 balance_handler.decrease(
                     user_id=request.user.id, decreased_value=purchase_price
                 )
             else:
+                pending_count = pending_order_handler.get_pending_count()
+
+                if pending_count + count >= settings.MINIMUM_PER_PURCHASE:
+                    pending_order_handler.pending_order(coin_id=coin_obj.id)
+                    exchange_count = count + pending_count
+
+                    # call exchange
+                    external_exchange_handler = ExternalExchangeHandler()
+                    external_exchange_handler.buy_from_exchange(
+                        coin=coin_obj.id, count=exchange_count
+                    )
+
                 return Response(
                     order_serializer.errors, status=status.HTTP_400_BAD_REQUEST
                 )

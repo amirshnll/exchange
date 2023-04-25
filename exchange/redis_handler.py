@@ -13,7 +13,7 @@ class RedisHandler:
         if self.redis_connection.get(key_name):
             return loads(self.redis_connection.get(key_name))
         else:
-            return None
+            return 0
 
     def set_item(self, key_name, value):
         self.redis_connection.set(key_name, dumps(value))
