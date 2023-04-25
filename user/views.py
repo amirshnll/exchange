@@ -83,7 +83,8 @@ class UserAuthApi(APIView):
             )
 
         if user_obj.check_password(password):
-            return Response(make_auth_obj(user_obj), status=status.HTTP_200_OK)
+            auth_obj = make_auth_obj(user_obj)
+            return Response(auth_obj, status=status.HTTP_200_OK)
         else:
             return Response(
                 {

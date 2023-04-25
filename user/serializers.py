@@ -39,8 +39,8 @@ class RegisterNewUserAdminSerializer(serializers.ModelSerializer):
 
 
 class AuthValidationSerializer(serializers.Serializer):
-    username = serializers.IntegerField(required=True)
-    password = serializers.IntegerField(required=True)
+    username = serializers.CharField(required=True)
+    password = serializers.CharField(required=True)
 
     def validate(self, attribute):
         return attribute
