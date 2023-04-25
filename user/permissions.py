@@ -15,19 +15,13 @@ def method_permission_classes(classes):
 
 class IsLogginedUser(permissions.BasePermission):
     def has_permission(self, request, view):
-        if (
+        return (
             request.user.id is not None
             and request.user.id > 0
             and request.user.is_deleted == False
-        ):
-            return True
-        else:
-            return False
+        )
 
 
 class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.user.type == "ADMIN":
-            return True
-        else:
-            return False
+        return request.user.type == "ADMIN"

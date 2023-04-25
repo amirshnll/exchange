@@ -29,26 +29,32 @@ class UserApi(APIView):
     # create new user
     def post(self, request):
         serializer = RegisterNewUserSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            if serializer.errors.get("username"):
-                return Response(serializer.errors, status=status.HTTP_409_CONFLICT)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if not serializer.is_valid():
+            return (
+                Response(serializer.errors, status=status.HTTP_409_CONFLICT)
+                if serializer.errors.get("username")
+                else Response(
+                    serializer.errors, status=status.HTTP_400_BAD_REQUEST
+                )
+            )
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class UserAdminApi(APIView):
     # create new admin
     def post(self, request):
         serializer = RegisterNewUserAdminSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            if serializer.errors.get("username"):
-                return Response(serializer.errors, status=status.HTTP_409_CONFLICT)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if not serializer.is_valid():
+            return (
+                Response(serializer.errors, status=status.HTTP_409_CONFLICT)
+                if serializer.errors.get("username")
+                else Response(
+                    serializer.errors, status=status.HTTP_400_BAD_REQUEST
+                )
+            )
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class UserTypeList(APIView):
@@ -63,14 +69,13 @@ class UserAuthApi(APIView):
     def post(self, request):
         balance_serializer = AuthValidationSerializer(data=request.data)
 
-        if balance_serializer.is_valid():
-            username = balance_serializer.validated_data["username"]
-            password = balance_serializer.validated_data["password"]
-        else:
+        if not balance_serializer.is_valid():
             return Response(
                 balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
             )
 
+        username = balance_serializer.validated_data["username"]
+        password = balance_serializer.validated_data["password"]
         try:
             user_obj = CustomUserModel.objects.get(username=username, is_deleted=False)
         except CustomUserModel.DoesNotExist:

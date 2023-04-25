@@ -13,7 +13,7 @@ def delete_user(user):
 
 
 def get_token_prefix():
-    return str(settings.AUTH_PREFIX) + " "
+    return f"{str(settings.AUTH_PREFIX)} "
 
 
 def user_is_exists(user_id):
