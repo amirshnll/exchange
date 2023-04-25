@@ -11,7 +11,7 @@ user_list = [
 
 class UserTestCases(TestCase):
     # python manage.py test user.tests.UserTestCases.UserAuth
-    def UserAuth(self):
+    def test_UserAuth(self):
         self.clients = APIClient()
         for user in user_list:
             self.user_register = self.client.post(

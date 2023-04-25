@@ -16,7 +16,7 @@ customers_list = [
 
 class OrderTestCases(TestCase):
     # python manage.py test order.tests.OrderTestCases.UserOrder
-    def UserOrder(self):
+    def test_UserOrder(self):
         self.clients = APIClient()
 
         self.admin_register = self.client.post(
@@ -79,7 +79,7 @@ class OrderTestCases(TestCase):
         )
 
     # python manage.py test order.tests.OrderTestCases.MultipleUserOrder
-    def MultipleUserOrder(self):
+    def test_MultipleUserOrder(self):
         self.clients = APIClient()
 
         self.admin_register = self.client.post(

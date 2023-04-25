@@ -14,7 +14,7 @@ admin_user = {"username": "admin", "password": "d6YHGGXncRFCTTXL4XYp"}
 
 class BalanceTestCases(TestCase):
     # python manage.py test balance.tests.BalanceTestCases.UserBalance
-    def UserBalance(self):
+    def test_UserBalance(self):
         self.clients = APIClient()
 
         self.admin_register = self.client.post(
