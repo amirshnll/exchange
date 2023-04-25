@@ -6,7 +6,7 @@ from .models import Order as OrderModel, OrderStatus as OrderStatusModel
 class PandingOrderHandler:
     def _get_coin(self, coin_id):
         try:
-            coin_obj = CoinTypesModel.objects.get(id=coin_id)
+            coin_obj = CoinTypesModel.objects.get(pk=coin_id)
             return coin_obj
         except CoinTypesModel.DoesNotExist:
             return None

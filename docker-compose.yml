@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  exchange:
+    build: .
+    container_name: exchange
+    command: gunicorn exchange.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=8Q5vhHC5pPdCCFHS7mM84GWcpKyJMch7tuzN6Z5t
+      - MINIMUM_PER_PURCHASE=10
+      - DEBUG=true
+      - ADMIN_ENABLED=true
+      - REDIS_HOST=localhost
+      - REDIS_DB=0
+      - REDIS_PORT=6379
+      - AUTH_PREFIX=Bearer
+      - AUTH_HEADER_TYPES=Bearer
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
