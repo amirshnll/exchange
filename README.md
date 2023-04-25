@@ -37,18 +37,18 @@ python manage.py test
 
 2. user authentication
 ```
-python manage.py test user.tests.UserTestCases.UserAuth
+python manage.py test user.tests.UserTestCases.test_UserAuth
 ```
 
 3.  user balance
 ```
-python manage.py test balance.tests.BalanceTestCases.UserBalance
+python manage.py test balance.tests.BalanceTestCases.test_UserBalance
 ```
 
 4. user order
 ```
-python manage.py test order.tests.OrderTestCases.UserOrder
-python manage.py test order.tests.OrderTestCases.MultipleUserOrder
+python manage.py test order.tests.OrderTestCases.test_UserOrder
+python manage.py test order.tests.OrderTestCases.test_MultipleUserOrder
 ```
 
 ## Run
