@@ -101,7 +101,7 @@ class NewOrderApi(APIView):
 
             coin_obj = CoinTypesModel.objects.get(name=name)
 
-            purchase_price = count * coin_obj.price
+            purchase_price = count * int(coin_obj.price)
 
             balance_handler = BalanceHandler()
             if (
@@ -127,31 +127,35 @@ class NewOrderApi(APIView):
                 new_order["status"] = OrderStatusModel.DONE
             else:
                 new_order["status"] = OrderStatusModel.PENDING
-            
+
             # pending order handler
             pending_order_handler = PandingOrderHandler()
 
             order_serializer = OrderSerializers(data=new_order)
             if order_serializer.is_valid():
                 order_serializer.save()
-                
+
+                balance_handler.decrease(
+                    user_id=request.user.id, decreased_value=purchase_price
+                )
+
                 if order_serializer.data["status"] == OrderStatusModel.DONE:
-                    pending_count = pending_order_handler.pending_order(coin_id=coin_obj.id)
+                    pending_count = pending_order_handler.pending_order(
+                        coin_id=coin_obj.id
+                    )
                     exchange_count = count + pending_count
-                    
+
                     # call exchange
                     external_exchange_handler = ExternalExchangeHandler()
                     external_exchange_handler.buy_from_exchange(
                         coin=coin_obj.id, count=exchange_count
                     )
-                    
-                    balance_handler.decrease(
-                        user_id=request.user.id, decreased_value=purchase_price
-                    )
                 else:
-                    pending_count = pending_order_handler.get_pending_count(coin_id=coin_obj.id)
+                    pending_count = pending_order_handler.get_pending_count(
+                        coin_id=coin_obj.id
+                    )
 
-                    if pending_count + count >= settings.MINIMUM_PER_PURCHASE:
+                    if pending_count + purchase_price >= settings.MINIMUM_PER_PURCHASE:
                         pending_order_handler.pending_order(coin_id=coin_obj.id)
                         exchange_count = count + pending_count
 
@@ -159,6 +163,10 @@ class NewOrderApi(APIView):
                         external_exchange_handler = ExternalExchangeHandler()
                         external_exchange_handler.buy_from_exchange(
                             coin=coin_obj.id, count=exchange_count
+                        )
+                    else:
+                        pending_order_handler.set_pending(
+                            coin_id=coin_obj.id, value=purchase_price
                         )
 
             return Response({"status": "success"}, status=status.HTTP_200_OK)

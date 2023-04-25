@@ -115,11 +115,11 @@ class OrderTestCases(TestCase):
             user_balance = self.clients.get(
                 "/api/v1/balance/user/", {}, **{"HTTP_AUTHORIZATION": user_token}
             ).json()
-            print(
+            """print(
                 "balance before purchase: ",
                 user["username"],
                 user_balance["balance"],
-            )
+            )"""
 
             new_order = self.clients.post(
                 "/api/v1/order/new/",
@@ -131,8 +131,8 @@ class OrderTestCases(TestCase):
             user_balance = self.clients.get(
                 "/api/v1/balance/user/", {}, **{"HTTP_AUTHORIZATION": user_token}
             ).json()
-            print(
+            """print(
                 "balance after purchase: ",
                 user["username"],
                 user_balance["balance"],
-            )
+            )"""
