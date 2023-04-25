@@ -1,0 +1,1113 @@
+{
+	"info": {
+		"_postman_id": "fe45f7f2-0caf-4387-a4b6-eab6f8a9224a",
+		"name": "Exchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25940266"
+	},
+	"item": [
+		{
+			"name": "balance",
+			"item": [
+				{
+					"name": "create balance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user balance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update balance by balance_id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "balance",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user balance by user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user balance by user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update balance by user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "balance",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update balance user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/user/change_balance/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"user",
+								"change_balance",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "increase balance user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/user/increase/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"user",
+								"increase",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decrease balance user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "balance",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/balance/user/decrease/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"balance",
+								"user",
+								"decrease",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "coin",
+			"item": [
+				{
+					"name": "create coin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ABAN",
+									"type": "text"
+								},
+								{
+									"key": "symbol",
+									"value": "AB",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/coin/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"coin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get coin data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/coin/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"coin",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update coin by coin_id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ABAN",
+									"type": "text"
+								},
+								{
+									"key": "symbol",
+									"value": "ABAN",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/coin/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"coin",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete coin by coin_id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/coin/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"coin",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "healthcheck",
+			"item": [
+				{
+					"name": "health check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/healthcheck/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"healthcheck",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coin",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coin_count",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "order_price",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "PENDING",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/order/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/order/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update order by order_id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "coin",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "coin_count",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "order_price",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "DONE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/order/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete order by order_id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/order/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order status list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/order/status/list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"status",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ABAN",
+									"type": "text"
+								},
+								{
+									"key": "count",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/order/new/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"new",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "create new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "amir",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "amiramir",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "amir",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "amiramir",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/user/admin/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "amir",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "amiramir",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/user/admin/auth/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"admin",
+								"auth",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user type list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjgyNTIxMTExLCJpYXQiOjE2ODI0MzQ3MTEsImp0aSI6IjU1ZTQ3OGNmYjEwNDQ3Njc5MDFhMTBjMTVhMjIyY2E1IiwidXNlcl9pZCI6MX0.6cOrIILmQr6J7167vY1d1b_ZFYMrOeoBWnwhgEmmouQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/user/type/list/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"type",
+								"list",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
