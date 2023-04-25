@@ -17,7 +17,7 @@ gunicorn==20.1.0
 
 ## env variables
 ```
-SECRET_KEY=8Q5vhHC5pPdCCFHS7mM84GWcpKyJMch7tuzN6Z5t
+SECRET_KEY=abcdefghijklmnopqrstuvwxyz
 MINIMUM_PER_PURCHASE=10
 DEBUG=true
 ADMIN_ENABLED=true
