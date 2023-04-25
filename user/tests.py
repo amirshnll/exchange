@@ -9,8 +9,8 @@ user_list = [
 ]
 
 
-class OrderTestCases(TestCase):
-    # python manage.py test user.tests.OrderTestCases.UserAuth
+class UserTestCases(TestCase):
+    # python manage.py test user.tests.UserTestCases.UserAuth
     def UserAuth(self):
         for user in user_list:
             self.clients = APIClient()
@@ -19,7 +19,6 @@ class OrderTestCases(TestCase):
                 user,
             ).json()
 
-            auth_obj = self.clients.post('/api/v1/user/auth/', user).json()
+            auth_obj = self.clients.post("/api/v1/user/auth/", user).json()
             user_token = get_token_prefix() + auth_obj["token"]
-            self.clients.credentials(HTTP_AUTHORIZATION=user_token)
-
+            print(user["username"], user_token)

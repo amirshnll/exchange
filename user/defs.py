@@ -12,4 +12,4 @@ def delete_user(user):
 
 
 def get_token_prefix():
-    return str(settings.AUTH_PREFIX)
+    return str(settings.AUTH_PREFIX) + " "
