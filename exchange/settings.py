@@ -15,8 +15,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if env("DEBUG") == "true" else False
-ADMIN_ENABLED = True if env("ADMIN_ENABLED") == "true" else False
+DEBUG = env("DEBUG") == "true"
+ADMIN_ENABLED = env("ADMIN_ENABLED") == "true"
 
 ALLOWED_HOSTS = ["*"]
 
