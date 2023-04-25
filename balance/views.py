@@ -118,12 +118,12 @@ class ChangeUserBalanceApi(APIView):
                 balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
             )
 
-        balance = BalanceHandler()
-        balance.set(user_id=user, new_value=balance)
-        balance_obj = balance.get(user_id=user)
-        serializer = BalanceSerializers(instance=balance_obj, many=False)
+        balance_handler = BalanceHandler()
+        balance_handler.set(user_id=user, new_value=balance)
+        balance_obj = balance_handler.get(user_id=user)
+        balance_serializer = BalanceSerializers(instance=balance_obj, many=False)
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(balance_serializer.data, status=status.HTTP_200_OK)
 
 
 class IncreaseUserBalanceApi(APIView):
@@ -140,12 +140,16 @@ class IncreaseUserBalanceApi(APIView):
                 balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
             )
 
-        balance = BalanceHandler()
-        balance.increase(user_id=user, increased_value=balance)
-        balance_obj = balance.get(user_id=user)
-        serializer = BalanceSerializers(instance=balance_obj, many=False)
+        balance_handler = BalanceHandler()
+        balance_handler.increase(user_id=user, increased_value=balance)
+        balance_obj = balance_handler.get(user_id=user)
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = None
+        if balance_obj is not None:
+            balance_serializer = BalanceSerializers(instance=balance_obj, many=False)
+            result = balance_serializer.data
+
+        return Response(result, status=status.HTTP_200_OK)
 
 
 class DecreaseUserBalanceApi(APIView):
@@ -162,9 +166,13 @@ class DecreaseUserBalanceApi(APIView):
                 balance_serializer.errors, status=status.HTTP_400_BAD_REQUEST
             )
 
-        balance = BalanceHandler()
-        balance.increase(user_id=user, decreased_value=balance)
-        balance_obj = balance.get(user_id=user)
-        serializer = BalanceSerializers(instance=balance_obj, many=False)
+        balance_handler = BalanceHandler()
+        balance_handler.decrease(user_id=user, decreased_value=balance)
+        balance_obj = balance_handler.get(user_id=user)
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        result = None
+        if balance_obj is not None:
+            balance_serializer = BalanceSerializers(instance=balance_obj, many=False)
+            result = balance_serializer.data
+
+        return Response(result, status=status.HTTP_200_OK)
