@@ -123,42 +123,43 @@ class NewOrderApi(APIView):
             }
 
             # set purchase status condition minimum per purchase
-            if count >= settings.MINIMUM_PER_PURCHASE:
+            if purchase_price >= settings.MINIMUM_PER_PURCHASE:
                 new_order["status"] = OrderStatusModel.DONE
             else:
                 new_order["status"] = OrderStatusModel.PENDING
-
+            
             # pending order handler
             pending_order_handler = PandingOrderHandler()
 
             order_serializer = OrderSerializers(data=new_order)
             if order_serializer.is_valid():
                 order_serializer.save()
-
-                pending_count = pending_order_handler.pending_order(coin_id=coin_obj.id)
-                exchange_count = count + pending_count
-
-                # call exchange
-                external_exchange_handler = ExternalExchangeHandler()
-                external_exchange_handler.buy_from_exchange(
-                    coin=coin_obj.id, count=exchange_count
-                )
-
-                balance_handler.decrease(
-                    user_id=request.user.id, decreased_value=purchase_price
-                )
-            else:
-                pending_count = pending_order_handler.get_pending_count()
-
-                if pending_count + count >= settings.MINIMUM_PER_PURCHASE:
-                    pending_order_handler.pending_order(coin_id=coin_obj.id)
+                
+                if order_serializer.data["status"] == OrderStatusModel.DONE:
+                    pending_count = pending_order_handler.pending_order(coin_id=coin_obj.id)
                     exchange_count = count + pending_count
-
+                    
                     # call exchange
                     external_exchange_handler = ExternalExchangeHandler()
                     external_exchange_handler.buy_from_exchange(
                         coin=coin_obj.id, count=exchange_count
                     )
+                    
+                    balance_handler.decrease(
+                        user_id=request.user.id, decreased_value=purchase_price
+                    )
+                else:
+                    pending_count = pending_order_handler.get_pending_count(coin_id=coin_obj.id)
+
+                    if pending_count + count >= settings.MINIMUM_PER_PURCHASE:
+                        pending_order_handler.pending_order(coin_id=coin_obj.id)
+                        exchange_count = count + pending_count
+
+                        # call exchange
+                        external_exchange_handler = ExternalExchangeHandler()
+                        external_exchange_handler.buy_from_exchange(
+                            coin=coin_obj.id, count=exchange_count
+                        )
 
             return Response({"status": "success"}, status=status.HTTP_200_OK)
         else:
