@@ -2,6 +2,7 @@ from django.test import TestCase
 from rest_framework.test import APIClient
 from user.defs import get_token_prefix
 import random
+from exchange.redis_handler import RedisHandler
 
 customer_user = {"username": "amir", "password": "ij4ZqGNwx9slG0Ltq4FS"}
 admin_user = {"username": "admin", "password": "d6YHGGXncRFCTTXL4XYp"}
@@ -55,9 +56,11 @@ class OrderTestCases(TestCase):
         )
 
         new_coin = {"name": "ABAN", "symbol": "ABAN", "price": "4"}
-        self.clients.post(
+        new_coin_obj = self.clients.post(
             "/api/v1/coin/", new_coin, **{"HTTP_AUTHORIZATION": admin_token}
         ).json()
+        redis_handler = RedisHandler()
+        redis_handler.remove_item(new_coin_obj["id"])
 
         new_order = self.clients.post(
             "/api/v1/order/new/",
@@ -89,9 +92,12 @@ class OrderTestCases(TestCase):
         # print(admin_user["username"], admin_token)
 
         new_coin = {"name": "ABAN", "symbol": "ABAN", "price": "4"}
-        self.clients.post(
+        new_coin_obj = self.clients.post(
             "/api/v1/coin/", new_coin, **{"HTTP_AUTHORIZATION": admin_token}
         ).json()
+
+        redis_handler = RedisHandler()
+        redis_handler.remove_item(new_coin_obj["id"])
 
         for user in customers_list:
             self.user_register = self.client.post(

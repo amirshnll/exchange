@@ -118,7 +118,7 @@ class NewOrderApi(APIView):
                 "user": request.user.id,
                 "coin": coin_obj.id,
                 "coin_count": count,
-                "order_price": coin_obj.price,
+                "order_price": purchase_price,
                 "status": "",
             }
 
