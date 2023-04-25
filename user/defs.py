@@ -13,3 +13,11 @@ def delete_user(user):
 
 def get_token_prefix():
     return str(settings.AUTH_PREFIX) + " "
+
+
+def user_is_exists(user_id):
+    try:
+        user_obj = CustomUserModel.objects.get(pk=user_id)
+        return True
+    except CustomUserModel.DoesNotExist:
+        return False

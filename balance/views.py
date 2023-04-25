@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import Balance as BalanceModel
-from .serializers import BalanceSerializers
+from .serializers import BalanceSerializers, BalanceValidationSerializer
 from user.permissions import method_permission_classes, IsLogginedUser, IsAdmin
 
 
@@ -84,13 +84,51 @@ class UserBalanceApi(APIView):
         try:
             balance_obj = BalanceModel.objects.get(user=request.user.id)
         except BalanceModel.DoesNotExist:
-            return Response(
-                {"status": "error", "message": "balance does not exist"},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+            balance_serializer = BalanceSerializers(data={"user": request.user.id})
+            if balance_serializer.is_valid():
+                balance_serializer.save()
+            else:
+                return Response(
+                    {"status": "error", "message": "balance does not exist"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        balance_obj = BalanceModel.objects.get(user=request.user.id)
         balance_obj.balance = (
             request.data["balance"] if "balance" in request.data else 0
         )
+        balance_obj.save()
+        serializer = BalanceSerializers(instance=balance_obj, many=False)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class ChangeUserBalanceApi(APIView):
+    # update balance user
+    @method_permission_classes([IsLogginedUser, IsAdmin])
+    def post(self, request):
+        order_serializer = BalanceValidationSerializer(data=request.data)
+
+        if order_serializer.is_valid():
+            user = order_serializer.validated_data["user"]
+            balance = order_serializer.validated_data["balance"]
+        else:
+            return Response(order_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            balance_obj = BalanceModel.objects.get(user=user)
+        except BalanceModel.DoesNotExist:
+            balance_serializer = BalanceSerializers(data={"user": user})
+            if balance_serializer.is_valid():
+                balance_serializer.save()
+            else:
+                return Response(
+                    {"status": "error", "message": "balance does not exist"},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
+        balance_obj = BalanceModel.objects.get(user=user)
+        balance_obj.balance = balance
         balance_obj.save()
         serializer = BalanceSerializers(instance=balance_obj, many=False)
 
